@@ -196,15 +196,90 @@ POA Val = O(log L). Moreover, there exist instances with POS Val = O(log L).
 
 \begin{frame}
 Multiple monopolies. The performance of the game with multiple monopolies
-degrades significantly – the price of anarchy can be unbounded even with 2
+degrades significantly - the price of anarchy can be unbounded even with 2
 monopolies. As we show below, the best Nash equilibrium behaves slightly better
 but is still a polynomial factor worse than an optimal solution.
 Theorem 3. For every B, there exists a single-source single-sink instance of
 the NPG containing 2 monopolies, with L = 2, and POA Val , POA Pro = omega(B).
+
+
+Theorem 4. There exists a family of single-commodity instances with POS Val ,
+POS Pro = omega(L k-1 ), where k is the number of monopolies. Moreover, in all
+single-commodity graphs with k > 1 monopolies, POS Val , POS Pro = O(L k-1 ).
 \end{frame}
 
 
 \subsection{NPG ( n source / 1 sink)}
+
+
+\begin{frame}
+Next we study the NPG in graphs with more general traffic matrix. Specifically
+different users have different sources, but a common sink. We assume that the
+network is a DAG with a single sink, and focus on instances that contain no
+monopolies 5 . Theorem 1 already shows that the price of stability with respect
+to profit can be quite large in this case. The main question we address here
+is whether competition drives down prices and enables a near socially optimal
+equilibrium just as in the single-commodity case.
+The results are surprisingly pessimistic. We find that there are networks with
+no pure equilibria.
+\end{frame}
+
+
+\begin{frame}
+Theorem 5. There exists a multi-source single-sink instance of the NPG with
+no monopolies that does not admit any pure Nash equilibria.
+In networks that admit pure equilibria, the price of stability for social value can
+be polynomial in L. This can happen (Theorem 6 below) even when the network
+in question satisfies a certain strong-competition condition, specifically, (1) there
+is sufficient path-choice - from every node in the graph, there are at least two
+edge-disjoint paths to the sink, and (2) no edge dominates over a specific user in
+terms of the capacity available to that user – removing any single edge reduces
+the amount of traffic that any user or group of users can route by only a constant
+fraction. We therefore attempt to isolate conditions that lead to a high price of
+stability, and find two culprits:
+1. Variations in demand curves across users-a very high value low traffic user
+can pre-empt a low value high traffic user.
+2. Congestion in the network—congestion in one part of the network (owing to
+low capacity), can get “carried over” to a different part of the network (in
+the form of high prices) due to the ISPs’ selfishness.
+Each condition alone can cause the network to have a high price of stability.
+Theorem 6. There exists a family of multiple-source single-sink instances sat-
+isfying strong competition and containing uniform demand such that POS Val =
+omega(poly L, poly N ), where N is the size of the network. There exists a family
+of multiple-source single-sink instances satisfying strong competition and with
+sparsity 1 such that POS Val = omega(poly L, poly N ).
+Here uniformity of demand and sparsity defined as follows.
+Definition 2. An instance of the NPG, (G, D), with multiple commodities and
+a single sink t is said to contain uniform demand if there exists a demand curve
+D such that for all s, D (s,t) is either zero, or equal to a scalar F s,t times D.
+Definition 3. Given a capacitated graph and a demand matrix, the sparsity of
+a cut in the graph with respect to the demand is the ratio of the total capacity
+of the cut to the total demand between all pairs (s, t) separated by the cut. The
+sparsity of the graph is the minimum of these sparsities over all cuts in the graph.
+\end{frame}
+
+
+\begin{frame}
+Fortunately, in the absence of the two conditions above, the network behaves
+well. In particular, we consider a certain class of DAGs called traffic-spreaders
+in which equilibria are guaranteed to exist, and show that when demand is
+uniform, the price of stability with respect to the social value is at most 1/alpha,
+where alpha is the sparsity of the network. We conjecture that this bound on the
+price of stability holds for all DAGs that admit pure equilibria.
+Definition 4. A DAG with sink t is said to be a traffic spreader if for every
+node v in the graph, and every two distinct paths P 1 and P 2 from v to t, any
+maximal common subpath of P 1 and P 2 is a prefix of both the paths.
+Theorem 7. Let (G, D) be a uniform-demand instance of the NPG where G
+is a traffic spreader and contains no monopolies, and all sources in the graph
+are leaves, that is, their in-degree is 0. Then (G, D) always admits a pure Nash
+equilibrium, and POS Val inf= 1/alpha, where alpha is the sparsity of G with respect to D.We remark that for Theorem 7, we do not require the instance to satisfy strong
+competition. This indicates that the amount of competition in the network has
+lesser influence on its performance compared to its traffic distribution.
+\end{frame}
+
+
+
+
 
 
 \section{Conclusion}
@@ -213,6 +288,15 @@ the NPG containing 2 monopolies, with L = 2, and POA Val , POA Pro = omega(B).
 \end{frame}
 
 \begin{frame}{Strengths and weaknesses}
+We consider a simplistic model for network pricing. A more realistic model should
+take into account quality of service requirements of the users, which may be
+manifested in the form of different values for different paths between the same
+source-destination pairs. In general combinatorial markets it would also be in-
+teresting to consider the effect of production costs on the pricing game, andthis may change the behavior of the market considerably. Finally, an alternate
+model of competition in two-sided markets is for the sellers to commit to produc-
+ing certain quantities of their product, and allowing market forces to determine
+the demand and prices. This two-stage game, known as “Cournot competition”,
+may lead to better or worse equilibria compared to Bertrand competition.
 \end{frame}
 
 
