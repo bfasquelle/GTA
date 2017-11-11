@@ -37,11 +37,11 @@
 \section{Introduction and motivations}
 
 \begin{frame}
-there have been growing concerns about the effective-
-ness of its current routing protocols in finding good routes and ensuring quality
+There have been growing concerns about the effectiveness of its current routing protocols in finding good routes and ensuring quality
 of service. Congestion and QoS based pricing has been suggested as a way of
-combating the ills of this distributed growth and selfish use of resources (see,
-e.g., [5, 7, 8, 10, 12]). Unfortunately, the effectiveness of such approaches relies on
+combating the ills of this distributed growth and selfish use of resources.
+
+Unfortunately, the effectiveness of such approaches relies on
 the cooperation of the multiple entities implementing them, namely the owners
 of resources on the Internet, or the ISPs. The ISPs’ goals do not necessarily
 align with the social objectives of efficiency and quality of service; their primary
@@ -51,38 +51,50 @@ objective is to maximize their own market share and profit.
 
 
 \begin{frame}
-given a large combinatorial
-market such as the Internet, suppose that the owners of resources selfishly price
-their product so as to maximize their profit, and consumers selfishly purchase
-bundles of products to maximize their utility, how does this effect the functioning
+Given a large combinatorial
+market such as the Internet, suppose that:
+\begin{itemize}
+\item the owners of resources selfishly price
+their product so as to maximize their profit
+\item consumers selfishly purchase
+bundles of products to maximize their utility
+\end{itemize}
+
+\begin{alertblock}{}
+How does this effect the functioning
 of the market as a whole?
+\end{alertblock}
 \end{frame}
 
 
 \begin{frame}
 Economists have traditionally studied the properties of equilibria that emerge
-in pricing games with competing firms in single-item markets (see, e.g., [15, 16]
-and references therein). It is well known [11], e.g., that in a single-good free
+in pricing games with competing firms in single-item markets . It is well known that in a single-good free
 market, oligopolies (two or a few competing firms) lead to a socially-optimal
-equilibrium 3 . On the other hand, a monopoly can cause an inefficient allocation
+equilibrium.
+
+On the other hand, a monopoly can cause an inefficient allocation
 by selfishly maximizing its own profit. Fortunately the extent of this inefficiency
 is bounded by a logarithmic factor in the (multiplicative) disparity between
 consumer values, as well as by a logarithmic factor in the number of consumers.
 
 These classical economic models ignore the combinatorial aspects of network
-pricing, namely that consumers have different geographic sources and destina-
-tions for their traffic, and goods (i.e., edges) are not pure substitutes, but rather
+pricing, namely that consumers have different geographic sources and destinations for their traffic, and goods (i.e., edges) are not pure substitutes, but rather
 are a complex mix of substitutes and complements, as defined by the network
 topology.
 \end{frame}
 
 
 \begin{frame}
-which properties of stan-
-dard price equilbrium models carry over to network/combinatorial settings? For
-example, are equilibria still guaranteed to exist? Are equilibria fully efficient?
-Does the answer depend in an interesting way on the network/demand struc-
-ture? The network model captures the classical single-item setting in the form of
+Which properties of standard price equilbrium models carry over to network/combinatorial settings?
+\begin{itemize}
+\item Are equilibria still guaranteed to exist? 
+\item Are equilibria fully efficient?
+\item Does the answer depend in an interesting way on the network/demand struc-
+ture?
+\end{itemize}
+
+The network model captures the classical single-item setting in the form of
 a single-source single-sink network with a single edge (modeling a monopoly), or
 multiple parallel edges (modeling an oligopoly). In addition, we investigate these
 questions in general single-source single-sink networks, as well as multiple-source
@@ -98,13 +110,15 @@ single-sink networks.
 \begin{frame}
 A network pricing game (NPG) is characterized by a directed graph G = (V, E)
 with edge capacities {c e } e E , and a set of users (traffic matrix) endowed with
-values. Each edge is owned by a distinct ISP. (Many of our results can be easily
-extended to the case where a single ISP owns multiple edges.) The value as-
-sociated with each chunk of traffic represents the per-unit monetary value that
+values.
+
+Each edge is owned by a distinct ISP. The value associated with each chunk of traffic represents the per-unit monetary value that
 the owner of that chunk obtains upon sending this traffic from its source to its
-destination. User values are represented in the form of demand curves 4 , D (s,t) ,
+destination. User values are represented in the form of demand curves, D (s,t) ,
 for every source-destination pair (s, t), where for every l, D (s,t) (l) represents the
-amount of traffic with value at least l. When the network has a single source-sink
+amount of traffic with value at least l.
+
+When the network has a single source-sink
 pair, we drop the subscript (s, t). We use D to denote the “demand suite”, or
 the collection of these demand curves, one for each source-sink pair. Without
 loss of generality, the minimum value is 1, that is, D (s,t) (1) = F tot
@@ -117,29 +131,34 @@ s,t for all pairs
 \subsection{Prices of anarchy and stability}
 
 \begin{frame}
-We evaluate the Nash equilibria of these games with respect to two objectives—
-social value and profit. The social value of a state S of the network, Val(S), is
+We evaluate the Nash equilibria of these games with respect to two objectives (social value and profit).
+
+The social value of a state S of the network, Val(S), is
 defined to be the total utility of all the agents in the system, specifically, the
 total value obtained by all the users, minus the prices paid by the users, plus
 the profits (prices) earned by all the ISPs. Since prices are endogenous to the
 game, this is equivalent to the total value obtained by all the users, and we will
-use this latter expression to evaluate it throughout the paper. The worst such
+use this latter expression to evaluate it throughout the paper.
+
+The worst such
 value over all Nash equilibria is captured by the price of anarchy: the price of
 anarchy of the NPG with respect to social value, POA Val , is defined to be the
 minimum over all Nash equilibria S in N of the ratio of the social value of the
 equilibrium to the optimal achievable value Val  :
 min S in N (G,D) Val(S)
-POA Val (G, D) =
-Val 
+POA Val (G, D) = Val 
+
 Here, Val  is the maximum total value achievable while satisfying all the capacity
 constraints in the network (this can be computed by a simple flow LP). Likewise,
 POA Pro denotes the price of anarchy with respect to profit:
 min S in N (G,D) Pro(S)
-POA Pro (G, D) =
-Pro 
+POA Pro (G, D) = Pro 
+
 Here Pro(S) is the total utility of all the ISPs, or the total payment made by
 all users. The optimal profit Pro  is defined to be the maximum profit over all
 states in which users are at equilibrium, and capacity constraints are satisfied.
+
+
 In instances with a large price of anarchy, we also study the performance of
 the best Nash equilibria and provide lower bounds for it. The price of stability
 of a game is defined to be the maximum over all Nash equilbria in the game
@@ -153,19 +172,29 @@ value and profit respectively.
 
 \subsection{Classic Bertrand Competition}
 
+\begin{frame}{Classic Bertrand Competition}
+
+\end{frame}
+
+
 \subsection{B.C. in NPG}
 
 \begin{frame}
 We extend the classic Bertrand model of competition to network pricing. The
-NPG has two stages. In the first stage, each ISP (edge) e picks a price n e . In the
-second stage each user picks paths between its source and destination to send
+NPG has two stages.
+
+In the first stage, each ISP (edge) e picks a price n e .
+
+In the second stage each user picks paths between its source and destination to send
 its traffic. We assume that users can split their traffic into infinitesimally small
 chunks, and spread it across multiple paths, or send fractional
 P amounts of traffic.
 Each user picks paths to maximize her utility, u = v - min P e in P e , where the
 minimum is over all paths P from the user’s source to its destination, and v is
 its value (or sends no flow if the minimum total price is larger than its value v).
-This selection of paths determines the amount of traffic f e on each edge. ISP e’s
+This selection of paths determines the amount of traffic f e on each edge.
+
+ISP e’s
 utility is given by f e e if f e  c e , and  otherwise. ISPs are selfish and set
 prices to maximize their utility.
 \end{frame}
