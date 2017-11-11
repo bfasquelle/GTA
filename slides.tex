@@ -205,22 +205,35 @@ prices to maximize their utility.
 \subsection{NPG (1 source / 1 sink)}
 
 \begin{frame}
-Definition 1. An edge in a given network is called a monopoly if its removal
+\begin{exampleblock}{Definition 1}
+An edge in a given network is called a monopoly if its removal
 causes the source of a commodity to be disconnected from its sink.
+\end{exampleblock}
+
+
 No monopoly. In the absence of monopolies, the behavior of the network is
 analogous to competition in single-item markets. Specifically, competition drives
 down prices and enables higher usage of the network, thereby obtaining good
 social value but poor profit.
-Theorem 1. In a single commodity network with no monopolies, POA Val = 1.
+
+\begin{block}{Theorem 1}
+In a single commodity network with no monopolies, POA Val = 1.
 Furthermore, there exist instances with POS Pro = O(L).
+\end{block}
+
 \end{frame}
 
 
 
 \begin{frame}
 Single monopoly. As we show below, the best-case and worst-case performance
-of single monopoly networks is identical to that of single-link networks.Theorem 2. In a single commodity network with 1 monopoly, POA Pro = 1 and
+of single monopoly networks is identical to that of single-link networks.
+
+
+\begin{block}{Theorem 2}
+In a single commodity network with 1 monopoly, POA Pro = 1 and
 POA Val = O(log L). Moreover, there exist instances with POS Val = O(log L).
+\end{block}
 \end{frame}
 
 \begin{frame}
@@ -228,13 +241,15 @@ Multiple monopolies. The performance of the game with multiple monopolies
 degrades significantly - the price of anarchy can be unbounded even with 2
 monopolies. As we show below, the best Nash equilibrium behaves slightly better
 but is still a polynomial factor worse than an optimal solution.
-Theorem 3. For every B, there exists a single-source single-sink instance of
+
+\begin{block}{Theorem 3}For every B, there exists a single-source single-sink instance of
 the NPG containing 2 monopolies, with L = 2, and POA Val , POA Pro = omega(B).
+\end{block}
 
-
-Theorem 4. There exists a family of single-commodity instances with POS Val ,
+\begin{block}{Theorem 4}There exists a family of single-commodity instances with POS Val ,
 POS Pro = omega(L k-1 ), where k is the number of monopolies. Moreover, in all
 single-commodity graphs with k > 1 monopolies, POS Val , POS Pro = O(L k-1 ).
+\end{block}
 \end{frame}
 
 
