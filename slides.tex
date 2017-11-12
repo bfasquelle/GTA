@@ -135,35 +135,38 @@ $\mathcal{L} = sup\{\ell|D_{(s,t)} (\ell) > 0\}$
 \begin{frame}
 We evaluate the Nash equilibria of these games with respect to two objectives (social value and profit).
 
-The social value of a state $S$ of the network, $\textbf{Val}(S)$, is
-defined to be the total utility of all the agents in the system.
+\begin{itemize}
+\item $\textbf{Val}(S)$: social value of a state $S$ of the network
+\item $\textbf{Pro}(S)$: total utility of all the ISPs, or the total payment made by all users.
+\end{itemize}
+
+%The social value of a state $S$ of the network, , is defined to be the total utility of all the agents in the system.
 % specifically, the total value obtained by all the users, minus the prices paid by the users, plus the profits (prices) earned by all the ISPs. Since prices are endogenous to the game, this is equivalent to the total value obtained by all the users, and we will use this latter expression to evaluate it throughout the paper.
 
-The worst such
-value over all Nash equilibria is captured by the price of anarchy: the price of
-anarchy of the NPG with respect to social value, POA Val , is defined to be the
-minimum over all Nash equilibria S in N of the ratio of the social value of the
-equilibrium to the optimal achievable value Val  :
-min S in N (G,D) Val(S)
-POA Val (G, D) = Val 
+%The worst such value over all Nash equilibria is captured by the price of anarchy:
+%the price of anarchy of the NPG with respect to social value, POA Val , is defined to be the minimum over all Nash equilibria S in N of the ratio of the social value of the equilibrium to the optimal achievable value Val  :
+\begin{block}{Price of Anarchy}
+\begin{center}
+$POA_{Val} (G, D) = \frac{min_{S \in N (G,D)} Val(S)}{Val *}$
 
-Here, Val  is the maximum total value achievable while satisfying all the capacity
-constraints in the network (this can be computed by a simple flow LP). Likewise,
-POA Pro denotes the price of anarchy with respect to profit:
-min S in N (G,D) Pro(S)
-POA Pro (G, D) = Pro 
+$POA_{Pro} (G, D) = \frac{min_{S \in N (G,D)} Pro(S)}{Pro *}$
+\end{center}
+\end{block}
 
-Here Pro(S) is the total utility of all the ISPs, or the total payment made by
-all users. The optimal profit Pro  is defined to be the maximum profit over all
-states in which users are at equilibrium, and capacity constraints are satisfied.
+%Here, Val  is the maximum total value achievable while satisfying all the capacity constraints in the network (this can be computed by a simple flow LP). Likewise, POA Pro denotes the price of anarchy with respect to profit:
+
+%Here Pro(S) is the total utility of all the ISPs, or the total payment made by all users. The optimal profit Pro  is defined to be the maximum profit over all states in which users are at equilibrium, and capacity constraints are satisfied.
 
 
-In instances with a large price of anarchy, we also study the performance of
-the best Nash equilibria and provide lower bounds for it. The price of stability
-of a game is defined to be the maximum over all Nash equilbria in the game
-of the ratio of the value of the equilibrium to the optimal achievable value. We
-use POS Val and POS Pro to denote the price of stability with respect to social
-value and profit respectively.
+%In instances with a large price of anarchy, we also study the performance of the best Nash equilibria and provide lower bounds for it. The price of stability of a game is defined to be the maximum over all Nash equilbria in the game of the ratio of the value of the equilibrium to the optimal achievable value. We use POS Val and POS Pro to denote the price of stability with respect to social value and profit respectively.
+
+\begin{block}{Price of Stability}
+\begin{center}
+$POS_{Val} (G, D) = \frac{max_{S \in N (G,D)} Val(S)}{Val *}$
+
+$POS_{Pro} (G, D) = \frac{max_{S \in N (G,D)} Pro(S)}{Pro *}$
+\end{center}
+\end{block}
 \end{frame}
 
 
