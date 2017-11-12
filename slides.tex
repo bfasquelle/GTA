@@ -213,30 +213,30 @@ prices to maximize their utility.
   %Every customer has the same source and sink.
   The equilibrium of the NPG depends on the presence of competition in the network and the ammount of monopolies.
   \begin{definition}[Monopoly]
-    \emph{Context: Network}. An edge is monopolized over a user if its removal causes the non-reachability of the destination.
+    An edge is monopolized over a user if its removal causes the non-reachability of the destination.
   \end{definition}
 \end{frame}
 
 \begin{frame}{Absence of monopoly}
   Without monopolies from any providers, the competition will decrease the prices to obtain a good social value. If a provider wishes to increase the price of an edge, he will be punish by the lack of users.
   \begin{theorem}
-    In a single commodity network with no monopolies, \(POA_{Val} = 1\). Furthermore, there exist instances with \(POS_{Pro} = \theta(\mathcal{L})\).
+    In a single commodity network with no monopolies, \(POA_{Val} = 1\).% Furthermore, there exist instances with \(POS_{Pro} = \theta(\mathcal{L})\)
   \end{theorem}
 \end{frame}
 
 \begin{frame}{Single monopoly}
   \begin{theorem}
     In a single commodity network with a single monopoly. \(POA_{Pro} = 1\) and \(POA_{Val} = O(log \mathcal{L})\).
-    Moreover, there exist instances with \(POS_{Val} = \theta(log \mathcal{L})\).
+    %Moreover, there exist instances with \(POS_{Val} = \theta(log \mathcal{L})\).
   \end{theorem}
 \end{frame}
 
 \begin{frame}{Multiple monopolies}
+  %\begin{theorem}
+  %  For every B, there exists a single-source single-sink instance of the NPG containing 2 monopolies, with \(\mathcal{L} = 2\), and \(POA_{Val}\), \(POA_{Pro} = \Omega(B)\).
+  %\end{theorem}
   \begin{theorem}
-    For every B, there exists a single-source single-sink instance of the NPG containing 2 monopolies, with \(\mathcal{L} = 2\), and \(POA_{Val}\), \(POA_{Pro} = \Omega(B)\).
-  \end{theorem}
-  \begin{theorem}
-    There exists a family of single-commodity instances with \(POS_{Val}\), \(POS_{Pro} = \Omega(\mathcal{L}^{k-1})\), where \(k\) is the number of monopolies. Moreover, in all single-commodity graphs with \(k > 1\) monopolies, \(POS_{Val}\), \(POS_{Pro} = O(\mathcal{L}^{k-1})\).
+    In all single-commodity graphs with \(k > 1\) monopolies, \(POS_{Val}\), \(POS_{Pro} = O(\mathcal{L}^{k-1})\).% There exists a family of single-commodity instances with \(POS_{Val}\), \(POS_{Pro} = \Omega(\mathcal{L}^{k-1})\), where \(k\) is the number of monopolies.
   \end{theorem}
 \end{frame}
 
