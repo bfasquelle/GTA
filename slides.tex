@@ -4,6 +4,9 @@
   \usepackage{array}
   \usepackage{url}
   \usepackage{ amssymb }
+  \usepackage{amsmath}
+  \usepackage{tikz}
+  \usetikzlibrary{arrows,automata}
   \usetheme{Warsaw}
 
   \title{Bertrand competition in networks}
@@ -222,6 +225,17 @@ prices to maximize their utility.
   \begin{theorem}
     In a single commodity network with no monopolies, \(POA_{Val} = 1\).% Furthermore, there exist instances with \(POS_{Pro} = \theta(\mathcal{L})\)
   \end{theorem}
+  \center
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,
+      scale = 1,transform shape]
+
+    \node[state] (S) {$S$};
+    \node[state,accepting] (D) [right of=S] {$D$};
+
+    \path (S) edge [bend left] node {$c_1$} (D)
+    (S) edge [bend right] node {$c_2$} (D);
+
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Single monopoly}
@@ -229,6 +243,16 @@ prices to maximize their utility.
     In a single commodity network with a single monopoly. \(POA_{Pro} = 1\) and \(POA_{Val} = O(log \mathcal{L})\).
     %Moreover, there exist instances with \(POS_{Val} = \theta(log \mathcal{L})\).
   \end{theorem}
+  \center
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,
+      scale = 1,transform shape]
+
+    \node[state] (S) {$S$};
+    \node[state,accepting] (D) [right of=S] {$D$};
+
+    \path (S) edge node {$c$} (D);
+
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Multiple monopolies}
@@ -238,6 +262,18 @@ prices to maximize their utility.
   \begin{theorem}
     In all single-commodity graphs with \(k > 1\) monopolies, \(POS_{Val}\), \(POS_{Pro} = O(\mathcal{L}^{k-1})\).% There exists a family of single-commodity instances with \(POS_{Val}\), \(POS_{Pro} = \Omega(\mathcal{L}^{k-1})\), where \(k\) is the number of monopolies.
   \end{theorem}
+  \center
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.5cm,
+      scale = 1,transform shape]
+
+    \node[state] (S) {$S$};
+    \node[state] (I) [right of=S]  {$I$};
+    \node[state,accepting] (D) [right of=I] {$D$};
+
+    \path (S) edge node {$c_1$} (I)
+    (I) edge node {$c_2$} (D);
+
+    \end{tikzpicture}
 \end{frame}
 
 
