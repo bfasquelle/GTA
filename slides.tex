@@ -3,6 +3,7 @@
   \usepackage{graphicx}
   \usepackage{array}
   \usepackage{url}
+  \usepackage{ amssymb }
   \usetheme{Warsaw}
 
   \title{Bertrand competition in networks}
@@ -206,54 +207,37 @@ prices to maximize their utility.
 
 \section{Nash Equilibrium}
 
-\subsection{NPG (1 source / 1 sink)}
+\subsection{NPG in single commodity}
 
-\begin{frame}
-\begin{exampleblock}{Definition 1}
-An edge in a given network is called a monopoly if its removal
-causes the source of a commodity to be disconnected from its sink.
-\end{exampleblock}
-
-
-No monopoly. In the absence of monopolies, the behavior of the network is
-analogous to competition in single-item markets. Specifically, competition drives
-down prices and enables higher usage of the network, thereby obtaining good
-social value but poor profit.
-
-\begin{block}{Theorem 1}
-In a single commodity network with no monopolies, POA Val = 1.
-Furthermore, there exist instances with POS Pro = O(L).
-\end{block}
-
+\begin{frame}{NPG in single commodity}
+  %Every customer has the same source and sink.
+  The equilibrium of the NPG depends on the presence of competition in the network and the ammount of monopolies.
+  \begin{definition}[Monopoly]
+    \emph{Context: Network}. An edge is monopolized over a user if its removal causes the non-reachability of the destination.
+  \end{definition}
 \end{frame}
 
-
-
-\begin{frame}
-Single monopoly. As we show below, the best-case and worst-case performance
-of single monopoly networks is identical to that of single-link networks.
-
-
-\begin{block}{Theorem 2}
-In a single commodity network with 1 monopoly, POA Pro = 1 and
-POA Val = O(log L). Moreover, there exist instances with POS Val = O(log L).
-\end{block}
+\begin{frame}{Absence of monopoly}
+  Without monopolies from any providers, the competition will decrease the prices to obtain a good social value. If a provider wishes to increase the price of an edge, he will be punish by the lack of users.
+  \begin{theorem}
+    In a single commodity network with no monopolies, \(POA_{Val} = 1\). Furthermore, there exist instances with \(POS_{Pro} = \theta(\mathcal{L})\).
+  \end{theorem}
 \end{frame}
 
-\begin{frame}
-Multiple monopolies. The performance of the game with multiple monopolies
-degrades significantly - the price of anarchy can be unbounded even with 2
-monopolies. As we show below, the best Nash equilibrium behaves slightly better
-but is still a polynomial factor worse than an optimal solution.
+\begin{frame}{Single monopoly}
+  \begin{theorem}
+    In a single commodity network with a single monopoly. \(POA_{Pro} = 1\) and \(POA_{Val} = O(log \mathcal{L})\).
+    Moreover, there exist instances with \(POS_{Val} = \theta(log \mathcal{L})\).
+  \end{theorem}
+\end{frame}
 
-\begin{block}{Theorem 3}For every B, there exists a single-source single-sink instance of
-the NPG containing 2 monopolies, with L = 2, and POA Val , POA Pro = omega(B).
-\end{block}
-
-\begin{block}{Theorem 4}There exists a family of single-commodity instances with POS Val ,
-POS Pro = omega(L k-1 ), where k is the number of monopolies. Moreover, in all
-single-commodity graphs with k > 1 monopolies, POS Val , POS Pro = O(L k-1 ).
-\end{block}
+\begin{frame}{Multiple monopolies}
+  \begin{theorem}
+    For every B, there exists a single-source single-sink instance of the NPG containing 2 monopolies, with \(\mathcal{L} = 2\), and \(POA_{Val}\), \(POA_{Pro} = \Omega(B)\).
+  \end{theorem}
+  \begin{theorem}
+    There exists a family of single-commodity instances with \(POS_{Val}\), \(POS_{Pro} = \Omega(\mathcal{L}^{k-1})\), where \(k\) is the number of monopolies. Moreover, in all single-commodity graphs with \(k > 1\) monopolies, \(POS_{Val}\), \(POS_{Pro} = O(\mathcal{L}^{k-1})\).
+  \end{theorem}
 \end{frame}
 
 
@@ -324,11 +308,6 @@ equilibrium, and POS Val inf= 1/alpha, where alpha is the sparsity of G with res
 competition. This indicates that the amount of competition in the network has
 lesser influence on its performance compared to its traffic distribution.
 \end{frame}
-
-
-
-
-
 
 \section{Conclusion}
 
