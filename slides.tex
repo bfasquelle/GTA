@@ -113,18 +113,19 @@ A network pricing game (NPG) is characterized by a directed graph $G = (V, E)$
 with edge capacities ${c_e}, e \in E$ , and a set of users (traffic matrix) endowed with
 values.
 
-Each edge is owned by a distinct ISP. The value associated with each chunk of traffic represents the per-unit monetary value that
-the owner of that chunk obtains upon sending this traffic from its source to its
-destination. User values are represented in the form of demand curves, D (s,t) ,
-for every source-destination pair (s, t), where for every l, D (s,t) (l) represents the
-amount of traffic with value at least l.
+Each edge is owned by a distinct ISP.
+%The value associated with each chunk of traffic represents the per-unit monetary value that the owner of that chunk obtains upon sending this traffic from its source to its destination.
+User values are represented in the form of demand curves, $D_{(s,t)}$ ,
+for every source-destination pair $(s, t)$, where for every $\ell$, $D_{(s,t)} (\ell)$ represents the
+amount of traffic with value at least $\ell$.
 
-When the network has a single source-sink
-pair, we drop the subscript (s, t). We use D to denote the “demand suite”, or
-the collection of these demand curves, one for each source-sink pair. Without
-loss of generality, the minimum value is 1, that is, D (s,t) (1) = F tot
-s,t for all pairs
-(s, t), and we use L to denote the maximum value—L = sup{l|D (s,t) (l) > 0}.
+%When the network has a single source-sink pair, we drop the subscript (s, t). 
+We use D to denote the “demand suite”, or the collection of these demand curves, one for each source-sink pair.
+Without loss of generality, the minimum value is $1$, that is, $D_{(s,t)} (1) = F^{tot}_{s,t}$ for all pairs $(s, t)$,
+and we use $\mathcal{L}$ to denote the maximum value:
+\begin{center}
+$\mathcal{L} = sup\{\ell|D_{(s,t)} (\ell) > 0\}$
+\end{center}
 \end{frame}
 
 
@@ -134,12 +135,9 @@ s,t for all pairs
 \begin{frame}
 We evaluate the Nash equilibria of these games with respect to two objectives (social value and profit).
 
-The social value of a state S of the network, Val(S), is
-defined to be the total utility of all the agents in the system, specifically, the
-total value obtained by all the users, minus the prices paid by the users, plus
-the profits (prices) earned by all the ISPs. Since prices are endogenous to the
-game, this is equivalent to the total value obtained by all the users, and we will
-use this latter expression to evaluate it throughout the paper.
+The social value of a state $S$ of the network, $\textbf{Val}(S)$, is
+defined to be the total utility of all the agents in the system.
+% specifically, the total value obtained by all the users, minus the prices paid by the users, plus the profits (prices) earned by all the ISPs. Since prices are endogenous to the game, this is equivalent to the total value obtained by all the users, and we will use this latter expression to evaluate it throughout the paper.
 
 The worst such
 value over all Nash equilibria is captured by the price of anarchy: the price of
