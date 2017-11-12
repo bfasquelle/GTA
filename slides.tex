@@ -37,15 +37,21 @@
 \section{Introduction and motivations}
 
 \begin{frame}
-There have been growing concerns about the effectiveness of its current routing protocols in finding good routes and ensuring quality
-of service. Congestion and QoS based pricing has been suggested as a way of
-combating the ills of this distributed growth and selfish use of resources.
+Internet: effectiveness of its current routing protocols in finding good routes and ensuring quality
+of service. 
 
-Unfortunately, the effectiveness of such approaches relies on
-the cooperation of the multiple entities implementing them, namely the owners
-of resources on the Internet, or the ISPs. The ISPs’ goals do not necessarily
-align with the social objectives of efficiency and quality of service; their primary
-objective is to maximize their own market share and profit.
+\begin{alertblock}{Problems}
+Distributed growth and selfish use of resources
+\end{alertblock}
+
+\vspace{5mm}
+
+A first solution: Congestion and Quality of Service based pricing
+
+\vspace{5mm}
+
+Unfortunately, the effectiveness of such approaches relies on the cooperation of the owners of resources on the Internet, or the ISPs.
+But their primary objective is \textbf{to maximize their own market share and profit}.
 \end{frame}
 
 
@@ -67,21 +73,21 @@ of the market as a whole?
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{State of the art}
 Economists have traditionally studied the properties of equilibria that emerge
-in pricing games with competing firms in single-item markets . It is well known that in a single-good free
-market, oligopolies (two or a few competing firms) lead to a socially-optimal
-equilibrium.
+in pricing games with competing firms in \textbf{single-item markets}.
 
-On the other hand, a monopoly can cause an inefficient allocation
-by selfishly maximizing its own profit. Fortunately the extent of this inefficiency
-is bounded by a logarithmic factor in the (multiplicative) disparity between
-consumer values, as well as by a logarithmic factor in the number of consumers.
+\begin{itemize}
+\item two or a few competing firms lead to a socially-optimal
+equilibrium
+\item a monopoly can cause an inefficient allocation
+by selfishly maximizing its own profit (bounded by a logarithmic factor in the disparity between
+consumer values, as well as by a logarithmic factor in the number of consumers)
+\end{itemize}
 
-These classical economic models ignore the combinatorial aspects of network
-pricing, namely that consumers have different geographic sources and destinations for their traffic, and goods (i.e., edges) are not pure substitutes, but rather
-are a complex mix of substitutes and complements, as defined by the network
-topology.
+Those models ignore the combinatorial aspects of network pricing.
+%namely that consumers have different geographic sources and destinations for their traffic, and goods (i.e., edges) are not pure substitutes, but rather
+%are a complex mix of substitutes and complements, as defined by the network topology.
 \end{frame}
 
 
@@ -90,15 +96,10 @@ Which properties of standard price equilbrium models carry over to network/combi
 \begin{itemize}
 \item Are equilibria still guaranteed to exist? 
 \item Are equilibria fully efficient?
-\item Does the answer depend in an interesting way on the network/demand struc-
-ture?
+\item Does the answer depend in an interesting way on the network/demand structure?
 \end{itemize}
 
-The network model captures the classical single-item setting in the form of
-a single-source single-sink network with a single edge (modeling a monopoly), or
-multiple parallel edges (modeling an oligopoly). In addition, we investigate these
-questions in general single-source single-sink networks, as well as multiple-source
-single-sink networks.
+We investigate these questions in general single-source single-sink networks (it captures the classical single-item setting), as well as multiple-source single-sink networks.
 \end{frame}
 
 
@@ -108,8 +109,8 @@ single-sink networks.
 \subsection{Network Pricing Game model}
 
 \begin{frame}
-A network pricing game (NPG) is characterized by a directed graph G = (V, E)
-with edge capacities {c e } e E , and a set of users (traffic matrix) endowed with
+A network pricing game (NPG) is characterized by a directed graph $G = (V, E)$
+with edge capacities ${c_e}, e \in E$ , and a set of users (traffic matrix) endowed with
 values.
 
 Each edge is owned by a distinct ISP. The value associated with each chunk of traffic represents the per-unit monetary value that
