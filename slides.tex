@@ -181,30 +181,27 @@ $POS_{Pro} (G, D) = \frac{max_{S \in N (G,D)} Pro(S)}{Pro *}$
 \subsection{Classic Bertrand Competition}
 
 \begin{frame}{Classic Bertrand Competition}
-
+  Two selfish firms want to sell products that are perfect substitutes and wish to maximize their utility.
+  A market demand curve represent the quantity bought for the set price.
+  \begin{itemize}
+  \item The firms set prices $p_{1,2}$ simultaneously to a product of marginal cost $c_1=c_2$.
+  \item The market picks the product from the firm that offers the lowest price.
+  \end{itemize}
 \end{frame}
 
 
 \subsection{B.C. in NPG}
 
 \begin{frame}
-We extend the classic Bertrand model of competition to network pricing. The
-NPG has two stages.
+  We extend the classic Bertrand model of competition to network pricing.
 
-In the first stage, each ISP (edge) e picks a price n e .
-
-In the second stage each user picks paths between its source and destination to send
-its traffic. We assume that users can split their traffic into infinitesimally small
-chunks, and spread it across multiple paths, or send fractional
-P amounts of traffic.
-Each user picks paths to maximize her utility, u = v - min P e in P e , where the
-minimum is over all paths P from the user’s source to its destination, and v is
-its value (or sends no flow if the minimum total price is larger than its value v).
-This selection of paths determines the amount of traffic f e on each edge.
-
-ISP e’s
-utility is given by f e e if f e  c e , and  otherwise. ISPs are selfish and set
-prices to maximize their utility.
+  
+  Each edge is owned by a different provider.
+  \begin{itemize}
+  \item The providers (edges) $e$ pick a price $\pi(e)$
+  \item Each user picks paths $P$ from source to destination by maximizing her utility.
+  \end{itemize}
+  The providers are selfish and want to maximizes their utility.
 \end{frame}
 
 
@@ -240,7 +237,7 @@ prices to maximize their utility.
 
 \begin{frame}{Single monopoly}
   \begin{theorem}
-    In a single commodity network with a single monopoly. \(POA_{Pro} = 1\) and \(POA_{Val} = O(log \mathcal{L})\).
+    In a single commodity network with a single monopoly \(POA_{Pro} = 1\) and \(POA_{Val} = O(log \mathcal{L})\).
     %Moreover, there exist instances with \(POS_{Val} = \theta(log \mathcal{L})\).
   \end{theorem}
   \center
