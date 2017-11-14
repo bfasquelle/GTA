@@ -274,72 +274,95 @@ $POS_{Pro} (G, D) = \frac{max_{S \in N (G,D)} Pro(S)}{Pro *}$
 \end{frame}
 
 
-\subsection{NPG ( n source / 1 sink)}
+\subsection{NPG ( n sources / 1 sink)}
 
 
-\begin{frame}
-Next we study the NPG in graphs with more general traffic matrix. Specifically
-different users have different sources, but a common sink. We assume that the
-network is a DAG with a single sink, and focus on instances that contain no
-monopolies 5 . Theorem 1 already shows that the price of stability with respect
-to profit can be quite large in this case. The main question we address here
-is whether competition drives down prices and enables a near socially optimal
-equilibrium just as in the single-commodity case.
-The results are surprisingly pessimistic. We find that there are networks with
-no pure equilibria.
-\end{frame}
-
-
-\begin{frame}
-Theorem 5. There exists a multi-source single-sink instance of the NPG with
-no monopolies that does not admit any pure Nash equilibria.
-In networks that admit pure equilibria, the price of stability for social value can
-be polynomial in L. This can happen (Theorem 6 below) even when the network
-in question satisfies a certain strong-competition condition, specifically, (1) there
-is sufficient path-choice - from every node in the graph, there are at least two
-edge-disjoint paths to the sink, and (2) no edge dominates over a specific user in
-terms of the capacity available to that user – removing any single edge reduces
-the amount of traffic that any user or group of users can route by only a constant
-fraction. We therefore attempt to isolate conditions that lead to a high price of
-stability, and find two culprits:
-1. Variations in demand curves across users-a very high value low traffic user
-can pre-empt a low value high traffic user.
-2. Congestion in the network—congestion in one part of the network (owing to
-low capacity), can get “carried over” to a different part of the network (in
-the form of high prices) due to the ISPs’ selfishness.
-Each condition alone can cause the network to have a high price of stability.
-Theorem 6. There exists a family of multiple-source single-sink instances sat-
-isfying strong competition and containing uniform demand such that POS Val =
-omega(poly L, poly N ), where N is the size of the network. There exists a family
-of multiple-source single-sink instances satisfying strong competition and with
-sparsity 1 such that POS Val = omega(poly L, poly N ).
-Here uniformity of demand and sparsity defined as follows.
-Definition 2. An instance of the NPG, (G, D), with multiple commodities and
-a single sink t is said to contain uniform demand if there exists a demand curve
-D such that for all s, D (s,t) is either zero, or equal to a scalar F s,t times D.
-Definition 3. Given a capacitated graph and a demand matrix, the sparsity of
+\begin{frame}{Definitions}
+  \begin{definition}[Uniform demand]
+    An instance of the NPG, $(G, D)$, with multiple commodities and
+a single sink $t$ is said to contain uniform demand if there exists a demand curve
+$D$ such that for all $s$, $D_{(s,t)}$ is either zero, or equal to a scalar $F_{s,t}$ times $D$.
+  \end{definition}
+  \begin{definition}[Sparsity]
+    Given a capacitated graph and a demand matrix, the sparsity of
 a cut in the graph with respect to the demand is the ratio of the total capacity
-of the cut to the total demand between all pairs (s, t) separated by the cut. The
+of the cut to the total demand between all pairs $(s, t)$ separated by the cut. The
 sparsity of the graph is the minimum of these sparsities over all cuts in the graph.
+  \end{definition}
+\end{frame}
+\begin{frame}{Definitions}
+  \begin{definition}[Traffic spreader]
+    A DAG with sink $t$ is said to be a traffic spreader if for every
+node $v$ in the graph, and every two distinct paths $P_1$ and $P_2$ from $v$ to $t$, any
+maximal common subpath of $P_1$ and $P_2$ is a prefix of both the paths.
+  \end{definition}
+
 \end{frame}
 
 
-\begin{frame}
-Fortunately, in the absence of the two conditions above, the network behaves
-well. In particular, we consider a certain class of DAGs called traffic-spreaders
-in which equilibria are guaranteed to exist, and show that when demand is
-uniform, the price of stability with respect to the social value is at most 1/alpha,
-where alpha is the sparsity of the network. We conjecture that this bound on the
-price of stability holds for all DAGs that admit pure equilibria.
-Definition 4. A DAG with sink t is said to be a traffic spreader if for every
-node v in the graph, and every two distinct paths P 1 and P 2 from v to t, any
-maximal common subpath of P 1 and P 2 is a prefix of both the paths.
-Theorem 7. Let (G, D) be a uniform-demand instance of the NPG where G
+\begin{frame}{Bounded POS}
+  \begin{theorem}
+    Let $(G, D)$ be a uniform-demand instance of the NPG where $G$
 is a traffic spreader and contains no monopolies, and all sources in the graph
-are leaves, that is, their in-degree is 0. Then (G, D) always admits a pure Nash
-equilibrium, and POS Val inf= 1/alpha, where alpha is the sparsity of G with respect to D.We remark that for Theorem 7, we do not require the instance to satisfy strong
-competition. This indicates that the amount of competition in the network has
-lesser influence on its performance compared to its traffic distribution.
+are leaves, that is, their in-degree is 0. Then $(G, D)$ always admits a pure Nash
+equilibrium, and $POS_{Val} \leq 1/\alpha$, where $\alpha$ is the sparsity of $G$ with respect to $D$.
+  \end{theorem}
+\end{frame}
+
+
+\begin{frame}{Construction of a Nash equilibrium - Initialization}
+
+\begin{itemize}
+\item $G_1 = G$ the current graph
+\item $V_1 = V$ the remaining vertices
+\item $C = \emptyset$ the current cut
+\item $B_1 = \emptyset$ the set of mandatory-demand sources
+\item $A_1 = A$ the set of remaining sources
+\item $f = 0$ at each edge, the current (partial) flow
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Construction of a Nash equilibrium - The loop}
+
+Let $C_i$ and $f_i'$ the result of MCFMD (Maximum Concurrent Flow with Mandatory Demand). $C_i$ minimizes:
+\begin{equation}
+\alpha_M(C) = \frac{\sum_{e\in C}c_e-\sum_{v \in B_i\cap V_C}M_v}{\sum_{v \in A_i \cap V_C}F_v}
+\end{equation}
+
+where $V_C$ is the part of the graph cut from sink $t$ by $C$.
+
+\end{frame}
+
+\begin{frame}{Construction of a Nash equilibrium - The loop}
+
+\begin{itemize}
+
+\item $\alpha_i = \alpha_M(C_i)$, $X_i = A_i \cap V_{C_i}$, $Y_i = B_i \cap V_{C_i}$, $C = C \cup C_i$
+\item $B' = \{ v : \exits u with (u \to v) \in C_i\}$ and for $v \in B'$, $M_v = \sum_{u :(u \to v) \in C_i}c_{(u,v)}$
+\item $f_i = \alpha_i F_v$ or $M_v$ for every node $v$ on the paths from $X_i$ or $Y_i$ until $B'$
+\item $f = f+f_i$, $A_{i+1} = A_i \backslash X_i$, $B_{i+1} = (B_i \backslash Y_i) \cup B'$, $\ell_i = D^{-1}(\alpha_i)$
+\item $V_{i+1}$: nodes with paths to $t$ in $G \backslash C$
+\item $S_i$: nodes of $V \backslash V_{i+1}$, $G_{i+1} = G_i \backslash S_i$, $i=i+1$
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Construction of a Nash equilibrium - Once A is empty}
+
+\begin{itemize}
+
+\item Complete the partial flow by routing the flow from $B_i$ to $t$ in $G_i$
+\item Assign a “height” to every node $v$ in the graph as follows: if there exists an $i$ such 
+that $v \in S_i$, then $h(v) = min_{i:v\in S_i}\{\ell_i\}$; if there is no such $i$,
+ then $h(v) = 0$ Furthermore, $h(t)= 0$ for the sink $t$
+\item For every edge $e = (u \to v)$, let $\pi_e = max\{h(u) - h(v), 0\}$
+
+\end{itemize}
+
+Finally, $(\pi, f)$ is a Nash equilibrium 
+
 \end{frame}
 
 \section{Conclusion}
