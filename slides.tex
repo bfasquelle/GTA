@@ -339,7 +339,7 @@ where $V_C$ is the part of the graph cut from sink $t$ by $C$.
 \begin{itemize}
 
 \item $\alpha_i = \alpha_M(C_i)$, $X_i = A_i \cap V_{C_i}$, $Y_i = B_i \cap V_{C_i}$, $C = C \cup C_i$
-\item $B' = \{ v : \exits u with (u \to v) \in C_i\}$ and for $v \in B'$, $M_v = \sum_{u :(u \to v) \in C_i}c_{(u,v)}$
+\item $B' = \{ v : \exists u\ with\ (u \to v) \in C_i\}$ and for $v \in B'$, $M_v = \sum_{u :(u \to v) \in C_i}c_{(u,v)}$
 \item $f_i = \alpha_i F_v$ or $M_v$ for every node $v$ on the paths from $X_i$ or $Y_i$ until $B'$
 \item $f = f+f_i$, $A_{i+1} = A_i \backslash X_i$, $B_{i+1} = (B_i \backslash Y_i) \cup B'$, $\ell_i = D^{-1}(\alpha_i)$
 \item $V_{i+1}$: nodes with paths to $t$ in $G \backslash C$
